@@ -23,9 +23,9 @@ public class Library {
             System.out.println(b.getName() + " : " + b.getNumberPages());
         }
         System.out.println();
-        System.out.println("Добавить цикл с выводом книги \"Clean code\"");
+        System.out.println("Добавить цикл с выводом книги \"Clean code\".");
         for (Book b : book) {
-            if (b.getName().equals("Clean code")) {
+            if ("Clean code".equals(b.getName())) {
                 System.out.println(b.getName() + " : " + b.getNumberPages());
             }
         }
