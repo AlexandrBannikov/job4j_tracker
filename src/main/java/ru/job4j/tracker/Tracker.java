@@ -8,6 +8,7 @@ import java.util.Arrays;
  * получение списка всех заявок - public Item[] findAll();
  * получение списка по имени - public Item[] findByName(String key);
  * получение заявки по id - public Item findById(int id);
+ * Метод удаления заявки - public boolean delete(int id);
  */
 
 public class Tracker {
