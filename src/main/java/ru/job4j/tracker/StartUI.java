@@ -1,8 +1,38 @@
 package ru.job4j.tracker;
 
+import java.util.Scanner;
+
 public class StartUI {
+
+    public void init(Scanner scanner, Tracker tracker) {
+        while (true) {
+            showMenu();
+            System.out.println("Select: ");
+            int select = Integer.parseInt(scanner.nextLine());
+            if (select != 7) {
+                System.out.println("Пользователь выбрал: " + select + ".");
+            } else {
+                System.out.println("Вы выбрали \"Exit program\" - " + select + ".");
+                break;
+            }
+        }
+    }
+
+    private void showMenu() {
+        String[] menu = {
+                "Add new Item.", "Show all items.", "Edit item.",
+                "Delete item.", "Find item by id.", "Find items by name.",
+                "Exit Program."
+        };
+        System.out.println("Menu:");
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println(i + 1 + ". " + menu[i]);
+        }
+    }
+
     public static void main(String[] args) {
-        Item item = new Item();
-        System.out.println(item);
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
     }
 }
