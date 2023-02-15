@@ -26,6 +26,18 @@ public class StartUI {
                 } else {
                     System.out.println("Хранилище не содержит заявок.");
                 }
+            } else if (select == 3) {
+                System.out.println("=== Edit Item ===");
+                System.out.println("Enter id.");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.println("Enter name.");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("The application has been successfully changed.");
+                } else {
+                    System.out.println("Application replacement error!");
+                }
             } else if (select == 7) {
                 System.out.println("Вы выбрали \"Exit program\" - " + select + ".");
                 break;
