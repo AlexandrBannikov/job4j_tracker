@@ -57,6 +57,18 @@ public class StartUI {
                 } else {
                     System.out.println("The application with the entered id: " + id + " was not found.");
                 }
+            } else if (select == 6) {
+                System.out.println("=== Find items by name ===");
+                System.out.print("Enter name:");
+                String name = scanner.nextLine();
+                Item[] items = tracker.findByName(name);
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Applications with the name: " + name + " were not found.");
+                }
             } else if (select == 7) {
                 System.out.println("Вы выбрали \"Exit program\" - " + select + ".");
                 break;
