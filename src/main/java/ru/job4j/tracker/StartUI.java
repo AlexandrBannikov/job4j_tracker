@@ -38,6 +38,15 @@ public class StartUI {
                 } else {
                     System.out.println("Application replacement error!");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Delete Item ===");
+                System.out.print("Enter id:");
+                int id = Integer.parseInt(scanner.nextLine());
+                if (tracker.delete(id)) {
+                    System.out.println("The application was deleted successfully.");
+                } else {
+                    System.out.println("Request deletion error.");
+                }
             } else if (select == 7) {
                 System.out.println("Вы выбрали \"Exit program\" - " + select + ".");
                 break;
