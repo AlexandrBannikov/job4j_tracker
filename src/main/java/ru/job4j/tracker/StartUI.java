@@ -7,7 +7,7 @@ public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         while (true) {
             showMenu();
-            System.out.println("Select: ");
+            System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select != 7) {
                 System.out.println("Пользователь выбрал: " + select + ".");
