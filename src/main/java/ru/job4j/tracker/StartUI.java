@@ -1,21 +1,17 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
-
 public class StartUI {
 
-    public void init(Scanner scanner, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         while (true) {
             showMenu();
-            System.out.print("Select: ");
-            int select = Integer.parseInt(scanner.nextLine());
+            int select = input.askInt("Select: ");
             if (select == 1) {
                 System.out.println("=== Create a new Item ===");
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
+                String name = input.askString("Enter name: ");
                 Item item = new Item(name);
                 tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
+                System.out.println("Added application: " + item);
             } else if (select == 2) {
                 System.out.println("=== Show all Items ===");
                 Item[] items = tracker.findAll();
@@ -24,14 +20,12 @@ public class StartUI {
                         System.out.println(item);
                     }
                 } else {
-                    System.out.println("Хранилище не содержит заявок.");
+                    System.out.println("The repository does not contain applications.");
                 }
             } else if (select == 3) {
                 System.out.println("=== Edit Item ===");
-                System.out.print("Enter id.");
-                int id = Integer.parseInt(scanner.nextLine());
-                System.out.print("Enter name.");
-                String name = scanner.nextLine();
+                int id = input.askInt("Enter id.");
+                String name = input.askString("Enter name.");
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
                     System.out.println("The application has been successfully changed.");
@@ -40,8 +34,7 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.println("=== Delete Item ===");
-                System.out.print("Enter id:");
-                int id = Integer.parseInt(scanner.nextLine());
+                int id = input.askInt("Enter id:");
                 if (tracker.delete(id)) {
                     System.out.println("The application was deleted successfully.");
                 } else {
@@ -49,8 +42,7 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 System.out.println("=== Find Item by id ===");
-                System.out.print("Enter id:");
-                int id = Integer.parseInt(scanner.nextLine());
+                int id = input.askInt("Enter id:");
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);
@@ -59,8 +51,7 @@ public class StartUI {
                 }
             } else if (select == 6) {
                 System.out.println("=== Find items by name ===");
-                System.out.print("Enter name:");
-                String name = scanner.nextLine();
+                String name = input.askString("Enter name:");
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
                     for (Item item : items) {
@@ -89,8 +80,8 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(scanner, tracker);
+        new StartUI().init(input, tracker);
     }
 }
