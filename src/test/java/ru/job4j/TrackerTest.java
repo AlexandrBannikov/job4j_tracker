@@ -1,14 +1,123 @@
 package ru.job4j;
 
 import org.junit.Test;
-import ru.job4j.tracker.Item;
-import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class TrackerTest {
+
+    @Test
+    public void whenReplaceItem() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        String replaceName = "New Test Name";
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+        );
+        UserAction[] actions = new UserAction[] {
+                new ReplaceAction(output),
+                new Exit(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Edit Item." + ln
+                        + "1. Exit." + ln
+                        + "=== Edit Item ===" + ln
+                        + "The application has been successfully changed." + ln
+                        + "Menu:" + ln
+                        + "0. Edit Item." + ln
+                        + "1. Exit." + ln
+                        + "You have chosen the \"Exit\"." + ln
+        );
+    }
+
+    @Test
+    public void whenFindItemById() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find id"));
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new FindByIdAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Find Item by id." + ln
+                        + "1. Exit." + ln
+                        + "=== Find Item by id ===" + ln
+                        + item + ln
+                        + "Menu:" + ln
+                        + "0. Find Item by id." + ln
+                        + "1. Exit." + ln
+                        + "You have chosen the \"Exit\"." + ln
+        );
+    }
+
+    @Test
+    public void whenFindItemsByName() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find items by name"));
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", item.getName(), "1"}
+        );
+        UserAction[] actions = {
+                new FindByNameAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Find Items by name." + ln
+                        + "1. Exit." + ln
+                        + "=== Find Items by name ===" + ln
+                        + item + ln
+                        + "Menu:" + ln
+                        + "0. Find Items by name." + ln
+                        + "1. Exit." + ln
+                        + "You have chosen the \"Exit\"." + ln
+        );
+    }
+
+    @Test
+    public void whenShowActionTestOutputIsSuccessfully() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Show all items"));
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAllAction(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Show all Items." + ln
+                        + "1. Exit." + ln
+                        + "=== Show all Items ===" + ln
+                        + item + ln
+                        + "Menu:" + ln
+                        + "0. Show all Items." + ln
+                        + "1. Exit." + ln
+                        + "You have chosen the \"Exit\"." + ln
+        );
+    }
+
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
