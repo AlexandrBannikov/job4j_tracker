@@ -6,6 +6,7 @@ import java.util.Arrays;
  * В классе Tracker должны быть методы
  * добавление заявок - public Item add(Item item);
  * получение списка всех заявок - public Item[] findAll();
+ * метод замены заявки - public boolean replace(int id, Item item)
  * получение списка по имени - public Item[] findByName(String key);
  * получение заявки по id - public Item findById(int id);
  * Метод удаления заявки - public boolean delete(int id);

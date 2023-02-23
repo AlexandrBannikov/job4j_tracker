@@ -1,7 +1,5 @@
 package ru.job4j.ex;
 
-import ru.job4j.tracker.ex.ElementNotFoundException;
-
 public class FindEl {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int rsl = -1;
