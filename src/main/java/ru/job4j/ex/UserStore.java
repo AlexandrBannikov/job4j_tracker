@@ -1,5 +1,8 @@
 package ru.job4j.ex;
 
+/**
+ * 0.5. Иерархия исключений и множественный catch. [#219368 #117318]
+ */
 public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User rsl = null;
