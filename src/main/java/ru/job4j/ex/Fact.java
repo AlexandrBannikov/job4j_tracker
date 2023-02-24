@@ -2,17 +2,15 @@ package ru.job4j.ex;
 
 public class Fact {
     public static int calc(int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("n must not be less than 0");
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return calc(n - 1) * n;
         }
-        int result = 1;
-        for (int index = 2; index <= n; index++) {
-            result *= index;
-        }
-        return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(calc(4));
+        int rsl = calc(3);
+        System.out.println(rsl);
     }
 }
