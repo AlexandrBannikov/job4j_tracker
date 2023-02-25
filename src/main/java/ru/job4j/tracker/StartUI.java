@@ -1,4 +1,8 @@
 package ru.job4j.tracker;
+
+/**
+ * 1. Обеспечить бесперебойную работу приложения Tracker
+ */
 public class StartUI {
     private final Output out;
 
