@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * 1. Обеспечить бесперебойную работу приложения Tracker [#789 #394846]
+ */
 public class ValidateInput extends ConsoleInput {
     @Override
     public int askInt(String question) {
