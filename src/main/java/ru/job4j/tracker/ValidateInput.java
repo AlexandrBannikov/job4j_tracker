@@ -1,19 +1,28 @@
 package ru.job4j.tracker;
 
 /**
- * 1. Обеспечить бесперебойную работу приложения Tracker [#789 #394846]
+ * 2. Рефакторинг - Шаблон Декоратор для валидатора. [#34117]
  */
 public class ValidateInput extends ConsoleInput {
+
+    private final Output out;
+    private final Input in;
+
+    public ValidateInput(Output out, Input in) {
+        this.out = out;
+        this.in = in;
+    }
+
     @Override
     public int askInt(String question) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
-                value = super.askInt(question);
+                value = in.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter valid date.");
+                out.println("Please enter valid data");
             }
         } while (invalid);
         return value;
