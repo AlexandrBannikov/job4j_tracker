@@ -22,6 +22,7 @@ public class FindByIdAction implements UserAction {
         } else {
             out.println("The application with the entered id: " + id + " was not found.");
         }
+        System.out.println();
         return true;
     }
 }

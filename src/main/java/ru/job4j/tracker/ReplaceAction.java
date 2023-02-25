@@ -23,6 +23,7 @@ public class ReplaceAction implements UserAction {
         } else {
             out.println("Application replacement error!");
         }
+        System.out.println();
         return true;
     }
 }

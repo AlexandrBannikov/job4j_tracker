@@ -18,7 +18,8 @@ public class CreateAction implements UserAction {
         String name = input.askString("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
-        out.println("Added application: " + item);
+        out.println("Application added: " + item);
+        System.out.println();
         return true;
     }
 }

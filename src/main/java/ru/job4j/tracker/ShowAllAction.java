@@ -23,6 +23,7 @@ public class ShowAllAction implements UserAction {
         } else {
             out.println("The repository does not contain applications.");
         }
+        System.out.println();
         return true;
     }
 }

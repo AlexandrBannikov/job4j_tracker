@@ -24,6 +24,7 @@ public class FindByNameAction implements UserAction {
         } else {
             out.println("Applications with the name: " + name + " were not found.");
         }
+        System.out.println();
         return true;
     }
 }
