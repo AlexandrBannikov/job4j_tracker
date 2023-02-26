@@ -1,8 +1,5 @@
 package ru.job4j.tracker;
 
-/**
- * 1. Singleton [#94606]
- */
 public final class SingleTracker {
 
     private Tracker tracker = new Tracker();
