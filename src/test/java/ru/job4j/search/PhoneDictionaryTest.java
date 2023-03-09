@@ -1,13 +1,11 @@
 package ru.job4j.search;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class PhoneDictionaryTest {
-
     @Test
     public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();

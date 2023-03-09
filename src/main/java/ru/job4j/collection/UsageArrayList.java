@@ -1,15 +1,14 @@
 package ru.job4j.collection;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class UsageArrayList {
     public static void main(String[] args) {
-        Collection names = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
         names.add("Petr");
         names.add("Ivan");
         names.add("Stepan");
-        for (Object name : names) {
+        for (String name : names) {
             System.out.println(name);
         }
     }
