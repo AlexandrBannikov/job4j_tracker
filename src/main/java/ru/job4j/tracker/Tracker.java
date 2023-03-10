@@ -16,7 +16,6 @@ import java.util.List;
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -26,7 +25,7 @@ public class Tracker {
 
     public List<Item> findAll() {
         List<Item> items = this.items;
-        return items;
+        return List.copyOf(items);
     }
 
     public Item findById(int id) {
