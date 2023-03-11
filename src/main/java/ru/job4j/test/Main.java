@@ -1,14 +1,17 @@
 package ru.job4j.test;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        Queue<String> queue = new LinkedList<>();
-        queue.offer("first");
-        queue.offer("second");
-        queue.offer("third");
-        System.out.println(queue.peek());
+        Deque<String> deque = new LinkedList<>();
+        deque.add("second");
+        deque.addFirst("first");
+        deque.addLast("third");
+        for (String str : deque) {
+            System.out.println(str);
+        }
     }
 }
