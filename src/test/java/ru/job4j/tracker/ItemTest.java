@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+
 public class ItemTest {
     @Test
     public void whenTestItemAscByName() {
@@ -35,5 +36,4 @@ public class ItemTest {
         item.sort(new ItemDescByName());
         assertThat(item).isEqualTo(exp);
     }
-
 }
