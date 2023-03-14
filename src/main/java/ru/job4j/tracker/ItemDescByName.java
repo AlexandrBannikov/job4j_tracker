@@ -2,6 +2,11 @@ package ru.job4j.tracker;
 
 import java.util.Comparator;
 
+/**
+ * 2. Создайте для модели данных ru.job4j.tracker.
+ * Item компаратор, который сортирует данные по убыванию имени.
+ * Компаратору присвойте имя ItemDescByName.
+ */
 public class ItemDescByName implements Comparator<Item> {
     @Override
     public int compare(Item left, Item right) {

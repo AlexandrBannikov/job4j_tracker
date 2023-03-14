@@ -6,6 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * - создайте List<Item> с именем items,
+ * заполните произвольными данными (объектов должно быть не менее трех).
+ * Далее этот список Вы отсортируете с помощью метода Collections.sort();
+ */
+
 public class ItemTest {
     @Test
     public void whenTestItemAscByName() {

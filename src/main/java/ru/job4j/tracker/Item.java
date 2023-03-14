@@ -3,6 +3,10 @@ package ru.job4j.tracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * 0. Сортировка [#10096 #400571]
+ */
+
 public class Item implements Comparable<Item> {
     private int id;
     private String name;
