@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * - создайте List<Item> с именем items,
  * заполните произвольными данными (объектов должно быть не менее трех).

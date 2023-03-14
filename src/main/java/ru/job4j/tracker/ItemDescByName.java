@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.Comparator;
-
 /**
  * 2. Создайте для модели данных ru.job4j.tracker.
  * Item компаратор, который сортирует данные по убыванию имени.
