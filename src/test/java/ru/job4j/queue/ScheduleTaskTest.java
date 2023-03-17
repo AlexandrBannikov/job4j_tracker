@@ -3,7 +3,6 @@ package ru.job4j.queue;
 import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static ru.job4j.queue.Position.*;

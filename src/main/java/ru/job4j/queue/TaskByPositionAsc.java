@@ -1,5 +1,4 @@
 package ru.job4j.queue;
-
 import java.util.Comparator;
 
 public class TaskByPositionAsc implements Comparator<Task> {
