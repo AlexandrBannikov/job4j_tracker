@@ -10,8 +10,7 @@ public class ProductLabel {
                 .flatMap(Stream::ofNullable)
                 .filter(product -> product.getStandard() - product.getActual() >= 0)
                 .filter(product -> product.getStandard() - product.getActual() <= 3)
-                .map(p -> new Label(p.getName(), p.getPrice() / 2))
-                .map(Label::toString)
+                .map(p -> new Label(p.getName(), p.getPrice() / 2).toString())
                 .collect(Collectors.toList());
     }
 }
