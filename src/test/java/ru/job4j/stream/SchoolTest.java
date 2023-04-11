@@ -1,8 +1,8 @@
 package ru.job4j.stream;
 
 import org.junit.Test;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
 import java.util.function.Predicate;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -62,5 +62,37 @@ public class SchoolTest {
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void whenInputListNotHaveDuplicate() {
+        List<Student> list = Arrays.asList(
+                new Student(30, "Ivanov"),
+                new Student(40, "Petrov"),
+                new Student(50, "Sidorov")
+        );
+        Map<String, Student> result = School.convert(list);
+        Map<String, Student> expected = new LinkedHashMap<>();
+        expected.put("Ivanov", new Student(30, "Ivanov"));
+        expected.put("Petrov", new Student(40, "Petrov"));
+        expected.put("Sidorov", new Student(50, "Sidorov"));
+        assertThat(result).containsAllEntriesOf(expected);
+    }
+
+    @Test
+    public void whenInputListHaveDuplicate() {
+        List<Student> list = Arrays.asList(
+                new Student(30, "Ivanov"),
+                new Student(40, "Petrov"),
+                new Student(50, "Ivanov"),
+                new Student(60, "Sidorov"),
+                new Student(70, "Petrov")
+        );
+        Map<String, Student> result = School.convert(list);
+        Map<String, Student> expected = new LinkedHashMap<>();
+        expected.put("Ivanov", new Student(30, "Ivanov"));
+        expected.put("Petrov", new Student(40, "Petrov"));
+        expected.put("Sidorov", new Student(60, "Sidorov"));
+        assertThat(result).containsAllEntriesOf(expected);
     }
 }
