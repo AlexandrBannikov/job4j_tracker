@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
+
+import ru.job4j.tracker.output.Output;
 
 /**
  * 2. Рефакторинг - Шаблон Декоратор для валидатора. [#34117]
