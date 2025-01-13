@@ -30,7 +30,9 @@ public class AnalyzeByMap {
         return list;
     }
 
-    // метод собран с помощью merge
+    /**
+     * метод собран с помощью merge
+     */
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         Map<String, Integer> map = new LinkedHashMap<>();
         List<Label> list = new ArrayList<>();
@@ -62,7 +64,9 @@ public class AnalyzeByMap {
         return list.get(list.size() - 1);
     }
 
-    // метод собран с помощью merge
+    /**
+     * метод собран с помощью merge
+      */
     public static Label bestSubject(List<Pupil> pupils) {
         Map<String, Integer> map = new LinkedHashMap<>();
         List<Label> list = new ArrayList<>();
